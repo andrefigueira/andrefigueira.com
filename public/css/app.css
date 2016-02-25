@@ -7951,6 +7951,8 @@ h6, .h6 {
   margin-bottom: 50px;
   padding-bottom: 50px;
   border-bottom: 1px solid #F0F0F0; }
+  .blog-post p {
+    margin-bottom: 30px; }
 
 .blog-post-title {
   margin-bottom: 5px;
