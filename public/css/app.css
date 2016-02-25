@@ -7960,7 +7960,8 @@ h6, .h6 {
 
 .blog-post-title {
   margin-bottom: 5px;
-  font-size: 40px; }
+  font-size: 32px;
+  font-weight: bold; }
   .blog-post-title a {
     color: #333; }
 
