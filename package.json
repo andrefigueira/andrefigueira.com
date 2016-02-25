@@ -4,6 +4,7 @@
     "gulp": "^3.8.8"
   },
   "dependencies": {
+    "admin-lte": "^2.3.2",
     "babel-preset-es2015": "^6.5.0",
     "babel-preset-react": "^6.5.0",
     "bootstrap-sass": "^3.0.0",
@@ -11,6 +12,7 @@
     "jquery": "^2.2.1",
     "jquery.backstretch": "^2.1.9",
     "laravel-elixir": "^4.0.0",
-    "prismjs": "^1.4.1"
+    "prismjs": "^1.4.1",
+    "simplemde": "^1.10.0"
   }
 }

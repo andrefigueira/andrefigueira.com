@@ -4,6 +4,4 @@ require('jquery.backstretch');
 
 $(document).ready(function() {
     $('.masthead').backstretch('img/laptop.jpg');
-
-
 });

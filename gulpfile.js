@@ -14,6 +14,7 @@ var elixir = require('laravel-elixir');
 elixir(function(mix) {
     mix
         .sass('app.scss')
+        .sass('dashboard.scss', 'public/css/dashboard.css')
         .sass('fixes/ie10-viewport-bug-workaround.scss')
         .babel('ie10-viewport-bug-workaround.js')
         .browserify('main.js')
@@ -22,16 +23,12 @@ elixir(function(mix) {
             'public/fonts'
         )
         .copy(
-            'node_modules/prismjs/prism.js',
-            'public/js/prismjs/prism.js'
+            'node_modules/prismjs',
+            'public/js/dependencies/prismjs'
         )
         .copy(
-            'node_modules/prismjs/themes',
-            'public/css/prismjs/themes'
-        )
-        .copy(
-            'node_modules/prismjs/components',
-            'public/js/prismjs/components'
+            'node_modules/admin-lte',
+            'public/js/dependencies/admin-lte'
         )
     ;
 });
