@@ -7963,7 +7963,8 @@ h6, .h6 {
   font-size: 32px;
   font-weight: bold; }
   .blog-post-title a {
-    color: #333; }
+    color: #333;
+    text-decoration: none; }
 
 .blog-post-meta {
   margin-bottom: 20px;
