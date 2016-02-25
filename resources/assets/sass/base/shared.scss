@@ -1,0 +1,89 @@
+.masthead {
+  padding: 30px;
+  margin-bottom: 30px;
+
+  .blog-header {
+    .blog-title {
+      color: #FFF;
+      text-shadow: 0 0 #000;
+      a {
+        color: #FFF;
+        text-decoration: none;
+      }
+    }
+    .blog-description {
+      color: #FFF;
+      text-shadow: 0 0 #000;
+    }
+  }
+}
+
+.social-links {
+  display: block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    display: inline-block;
+    margin-right: 30px;
+    a {
+      color: #FFF;
+      font-size: 16px;
+    }
+  }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+  .masthead {
+    padding: 10px;
+    margin-bottom: 30px;
+
+    .blog-header {
+      .blog-title {
+        font-size: 40px;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+      .blog-description {
+        text-align: center;
+      }
+    }
+  }
+
+  .social-links {
+    text-align: center;
+    li {
+      text-align: center;
+      display: inline;
+      margin-right: 20px;
+    }
+  }
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+  .masthead {
+    padding: 10px;
+    margin-bottom: 30px;
+
+    .blog-header {
+      .blog-title {
+        font-size: 40px;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+      .blog-description {
+        font-size: 20px;
+      }
+    }
+  }
+
+  .social-links {
+    li {
+      a {
+        font-size: 14px;
+      }
+    }
+  }
+}

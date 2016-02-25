@@ -1,0 +1,56 @@
+@mixin border-radius($radius) {
+  border-radius: $radius;
+  -o-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+}
+
+@mixin box-shadow($args) {
+  box-shadow: $args;
+  -o-box-shadow: $args;
+  -moz-box-shadow: $args;
+  -webkit-box-shadow: $args;
+}
+
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+$image-path: '../img' !default;
+$fallback-extension: 'png' !default;
+$retina-suffix: '@2x';
+
+@mixin background-image($name, $size:false){
+  background-image: url(#{$image-path}/#{$name}.svg);
+  @if($size){
+    background-size: $size;
+  }
+  .no-svg &{
+    background-image: url(#{$image-path}/#{$name}.#{$fallback-extension});
+
+    @media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+      background-image: url(#{$image-path}/#{$name}#{$retina-suffix}.#{$fallback-extension});
+    }
+  }
+}
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+@mixin shadow($args...) {
+  box-shadow: $args;
+  -o-box-shadow: $args;
+  -moz-box-shadow: $args;
+  -webkit-box-shadow: $args;
+}
