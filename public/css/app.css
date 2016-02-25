@@ -7953,6 +7953,10 @@ h6, .h6 {
   border-bottom: 1px solid #F0F0F0; }
   .blog-post p {
     margin-bottom: 30px; }
+  .blog-post a {
+    color: #333;
+    font-weight: bold;
+    text-decoration: underline; }
 
 .blog-post-title {
   margin-bottom: 5px;
