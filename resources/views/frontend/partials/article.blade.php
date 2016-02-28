@@ -1,14 +1,15 @@
-<div class="blog-post">
+<article class="blog-post" itemid="{{ $article->getCanonical() }}" itemscope itemtype="http://schema.org/BlogPosting">
     @if($preview)
-        <h2 class="blog-post-title"><a href="{{ $article->created_at->format('Y') }}/{{ $article->created_at->format('m') }}/{{ $article->created_at->format('d') }}/{{ $article->permalink }}">{{ $article->name }}</a></h2>
+        <h2 class="blog-post-title"><a itemprop="url" href="{{ $article->getCanonical() }}">{{ $article->name }}</a></h2>
     @else
-        <h2 class="blog-post-title">{{ $article->name }}</h2>
+        <h2 class="blog-post-title" itemprop="headline">{{ $article->name }}</h2>
     @endif
 
     @if(!$preview)
         <p class="blog-post-meta">
             <img src="img/author.jpg" class="author" alt="Author picture">
-            <strong><a href="https://plus.google.com/u/1/+AndreFigueiraTheGuy" target="_blank">Andr&eacute; Figueira</a></strong> on {{ $article->created_at->format('jS, F, Y') }}
+
+            <strong><a rel="author" href="https://plus.google.com/u/1/+AndreFigueiraTheGuy?rel=author" target="_blank" itemprop="author" itemscope itemtype="http://schema.org/Person">Andr&eacute; Figueira</a></strong> on <time datetime="{{ $article->created_at }}">{{ $article->created_at->format('jS, F, Y') }}</time>
 
             &middot;
 
@@ -17,11 +18,11 @@
     @endif
 
     @if($preview)
-        {!! $article->excerpt !!}
+        <section class="blog-post-excerpt" itemprop='description'>{!! $article->excerpt !!}</section>
     @else
-        <div class="blog-post-content">{!! markdown($article->content) !!}</div>
+        <section class="blog-post-content" itemprop="articleBody">{!! markdown($article->content) !!}</section>
     @endif
-</div><!-- /.blog-post -->
+</article><!-- /.blog-post -->
 
 @if(!$preview)
     <div id="disqus_thread"></div>

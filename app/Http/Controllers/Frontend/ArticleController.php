@@ -12,12 +12,15 @@ class ArticleController extends Controller
     {
         $article = Article::where('permalink', $permalink)->firstOrFail();
 
+        $canonical = $article->getCanonical();
+
         return view('frontend.pages.article', [
             'article' => $article,
             'type'        => 'article',
             'title'       => $article->name,
             'description' => $article->excerpt,
             'author'      => 'Andre Figueira',
+            'canonical'   => $canonical,
         ]);
     }
 }
