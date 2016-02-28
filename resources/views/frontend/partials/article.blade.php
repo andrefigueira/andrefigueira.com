@@ -6,13 +6,20 @@
     @endif
 
     @if(!$preview)
-        <p class="blog-post-meta"><img src="img/author.jpg" class="author" alt="Author picture"> <strong>Andr&eacute; Figueira</strong> on {{ $article->created_at->format('jS, F, Y') }}</p>
+        <p class="blog-post-meta">
+            <img src="img/author.jpg" class="author" alt="Author picture">
+            <strong><a href="https://plus.google.com/u/1/+AndreFigueiraTheGuy" target="_blank">Andr&eacute; Figueira</a></strong> on {{ $article->created_at->format('jS, F, Y') }}
+
+            &middot;
+
+            <span class="reading-time"></span>
+        </p>
     @endif
 
     @if($preview)
         {!! $article->excerpt !!}
     @else
-        {!! markdown($article->content) !!}
+        <div class="blog-post-content">{!! markdown($article->content) !!}</div>
     @endif
 </div><!-- /.blog-post -->
 

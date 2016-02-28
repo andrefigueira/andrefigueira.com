@@ -18,6 +18,7 @@ elixir(function(mix) {
         .sass('fixes/ie10-viewport-bug-workaround.scss')
         .babel('ie10-viewport-bug-workaround.js')
         .browserify('main.js')
+        .browserify('article.js')
         .copy(
             'node_modules/font-awesome/fonts',
             'public/fonts'

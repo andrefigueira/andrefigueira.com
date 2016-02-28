@@ -2,6 +2,10 @@
 
 @include('js.prism')
 
+@section('js')
+    <script src="js/article.js"></script>
+@append
+
 @section('content')
     <div class="row">
         <div class="col-sm-9 blog-main col-sm-offset-2">
