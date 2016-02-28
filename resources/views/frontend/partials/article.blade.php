@@ -10,9 +10,7 @@
             <img src="img/author.jpg" class="author" alt="Author picture">
 
             <strong><a rel="author" href="https://plus.google.com/u/1/+AndreFigueiraTheGuy?rel=author" target="_blank" itemprop="author" itemscope itemtype="http://schema.org/Person">Andr&eacute; Figueira</a></strong> on <time datetime="{{ $article->created_at }}">{{ $article->created_at->format('jS, F, Y') }}</time>
-
             &middot;
-
             <span class="reading-time"></span>
         </p>
     @endif
