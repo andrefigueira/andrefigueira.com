@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, DM_Sans, JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import { Cormorant_Garamond, DM_Sans, IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 
@@ -17,8 +17,8 @@ const body = DM_Sans({
   display: "swap",
 });
 
-const mono = JetBrains_Mono({
-  variable: "--font-mono",
+const mono = IBM_Plex_Mono({
+  variable: "--font-mono-display",
   subsets: ["latin"],
   weight: ["400", "500"],
   display: "swap",
@@ -32,32 +32,34 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Andre Figueira | Software Engineer",
+  title: "André Figueira | Researcher & Principal Engineer",
   description:
-    "Software engineer building digital experiences that matter. Clean code, great UX, products that solve real problems.",
+    "Independent researcher exploring informational ontology, consciousness, and the nature of reality. Principal Engineer with 20+ years building systems at scale. Founder of Polyxmedia.",
   keywords: [
+    "informational substrate convergence",
+    "informational ontology",
+    "philosophy of mind",
+    "hard problem of consciousness",
+    "quantum information theory",
+    "independent researcher",
+    "principal engineer",
     "software engineer",
-    "developer",
-    "react",
-    "typescript",
-    "next.js",
-    "full stack",
   ],
-  authors: [{ name: "Andre Figueira" }],
+  authors: [{ name: "André Figueira" }],
   openGraph: {
-    title: "Andre Figueira | Software Engineer",
+    title: "André Figueira | Researcher & Principal Engineer",
     description:
-      "Software engineer building digital experiences that matter.",
+      "Independent researcher exploring what reality is made of. Principal Engineer building systems at scale.",
     url: "https://andrefigueira.me",
-    siteName: "Andre Figueira",
+    siteName: "André Figueira",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Andre Figueira | Software Engineer",
+    title: "André Figueira | Researcher & Principal Engineer",
     description:
-      "Software engineer building digital experiences that matter.",
+      "Independent researcher exploring what reality is made of. Principal Engineer building systems at scale.",
     creator: "@andrefigueira",
   },
   robots: {

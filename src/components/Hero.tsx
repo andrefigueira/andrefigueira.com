@@ -2,85 +2,134 @@
 
 import { motion } from "framer-motion";
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: [0.25, 0.4, 0.25, 1] as const,
-    },
-  },
-};
-
 export function Hero() {
   return (
-    <section className="px-6 pt-28 pb-8">
+    <section
+      id="hero"
+      className="relative flex flex-col min-h-screen px-6 md:px-10"
+    >
+      {/* ── Top row: name + nav ── */}
       <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="max-w-4xl mx-auto"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.1 }}
+        className="flex items-center justify-between pt-8 pb-0 max-w-5xl mx-auto w-full"
       >
+        <span
+          className="font-serif text-base font-medium tracking-tight"
+          style={{ color: "var(--text)" }}
+        >
+          André Figueira
+        </span>
+        <nav className="flex items-center gap-6 sm:gap-8">
+          {[
+            { label: "Research", href: "#research" },
+            { label: "Work", href: "#work" },
+            { label: "About", href: "#about" },
+            { label: "Contact", href: "#contact" },
+          ].map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="text-xs uppercase tracking-widest transition-colors duration-150 hidden sm:block"
+              style={{
+                color: "var(--muted)",
+                fontFamily: "var(--font-mono-display), monospace",
+              }}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.color = "var(--text)")
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.color = "var(--muted)")
+              }
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+      </motion.div>
+
+      {/* ── Centre: the question ── */}
+      <div className="flex-1 flex flex-col justify-center max-w-5xl mx-auto w-full py-16">
         <motion.h1
-          variants={itemVariants}
-          className="font-serif text-4xl md:text-6xl lg:text-7xl font-medium leading-[1] tracking-tight mb-5"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+          className="font-serif font-medium select-none"
+          style={{
+            fontSize: "clamp(4.25rem, 12.5vw, 11.5rem)",
+            lineHeight: 0.95,
+            letterSpacing: "-0.025em",
+            color: "var(--text)",
+          }}
         >
-          Building <span className="gradient-text">systems</span> that scale.
+          What is<br />
+          reality<br />
+          <span style={{ color: "var(--accent)" }}>made of?</span>
         </motion.h1>
+      </div>
 
-        <motion.p
-          variants={itemVariants}
-          className="text-base md:text-lg text-[var(--foreground-muted)] max-w-lg leading-relaxed mb-8"
-        >
-          Principal Engineer with 20+ years of experience. Currently building
-          highly scalable APIs for major retailers. Founder of Polyxmedia.
-        </motion.p>
-
-        <motion.div variants={itemVariants} className="flex flex-wrap gap-3">
-          <motion.a
-            href="#work"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium hover:opacity-90 transition-opacity"
-            style={{ backgroundColor: 'var(--foreground)', color: 'var(--background)' }}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
+      {/* ── Bottom: identity + scroll cue ── */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.7 }}
+        className="max-w-5xl mx-auto w-full pb-10"
+        style={{ borderTop: "1px solid var(--border)", paddingTop: "1.5rem" }}
+      >
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <p
+            className="text-sm leading-relaxed"
+            style={{ color: "var(--muted)", maxWidth: "52ch" }}
           >
-            View my work
+            Independent researcher. First paper on informational ontology forthcoming on arXiv.
+            Principal Engineer with 20+ years building systems at scale. Founder,{" "}
+            <a
+              href="https://polyxmedia.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors duration-150"
+              style={{ color: "var(--text)" }}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.color = "var(--accent)")
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.color = "var(--text)")
+              }
+            >
+              Polyxmedia
+            </a>
+            .
+          </p>
+          <a
+            href="#research"
+            className="group flex items-center gap-2 text-xs uppercase tracking-widest flex-shrink-0 transition-colors duration-150"
+            style={{
+              color: "var(--dim)",
+              fontFamily: "var(--font-mono-display), monospace",
+            }}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.color = "var(--muted)")
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.color = "var(--dim)")
+            }
+          >
+            Scroll to read
             <svg
               width="12"
               height="12"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+              strokeWidth="1.5"
+              className="transition-transform duration-300 group-hover:translate-y-1"
             >
-              <line x1="7" y1="17" x2="17" y2="7" />
-              <polyline points="7 7 17 7 17 17" />
+              <line x1="12" y1="5" x2="12" y2="19" />
+              <polyline points="19 12 12 19 5 12" />
             </svg>
-          </motion.a>
-          <motion.a
-            href="#contact"
-            className="inline-flex items-center gap-2 px-5 py-2.5 border border-[var(--border)] rounded-full text-sm font-medium hover:border-[var(--foreground)] transition-colors"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            Get in touch
-          </motion.a>
-        </motion.div>
+          </a>
+        </div>
       </motion.div>
     </section>
   );

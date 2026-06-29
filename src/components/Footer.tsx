@@ -1,32 +1,33 @@
 "use client";
 
-import { motion } from "framer-motion";
-
 export function Footer() {
-  const currentYear = new Date().getFullYear();
-
   return (
-    <footer className="py-12 px-6 border-t border-[var(--border)]">
-      <div className="max-w-4xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="flex flex-col md:flex-row items-center justify-between gap-4"
+    <footer
+      className="px-6 md:px-10 py-8"
+      style={{ borderTop: "1px solid var(--border)" }}
+    >
+      <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+        <p
+          className="text-xs"
+          style={{
+            color: "var(--dim)",
+            fontFamily: "var(--font-mono-display), monospace",
+          }}
         >
-          <p className="text-sm text-[var(--foreground-muted)]">
-            {currentYear} Andre Figueira. Built with Next.js.
-          </p>
-          <div className="flex items-center gap-6">
-            <a
-              href="#"
-              className="text-sm text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors"
-            >
-              Back to top
-            </a>
-          </div>
-        </motion.div>
+          &copy; {new Date().getFullYear()} André Figueira
+        </p>
+        <a
+          href="#"
+          className="text-xs transition-colors duration-150"
+          style={{
+            color: "var(--dim)",
+            fontFamily: "var(--font-mono-display), monospace",
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.color = "var(--muted)")}
+          onMouseLeave={(e) => (e.currentTarget.style.color = "var(--dim)")}
+        >
+          ↑ Back to top
+        </a>
       </div>
     </footer>
   );

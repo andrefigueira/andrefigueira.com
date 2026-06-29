@@ -2,81 +2,105 @@
 
 import { motion } from "framer-motion";
 
-const skills = [
-  "Go",
-  "Rust",
-  "Python",
-  "TypeScript",
-  "React",
-  "Vue.js",
-  "Node.js",
-  "PostgreSQL",
-  "Kubernetes",
-  "Docker",
-  "AWS",
-  "Google Cloud",
-  "Kafka",
-  "OpenAI",
-  "LangChain",
-];
-
 export function About() {
   return (
-    <section id="about" className="py-12 px-6 bg-[var(--background-secondary)]">
-      <div className="max-w-4xl mx-auto">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.4 }}
-          className="font-serif text-3xl md:text-4xl font-medium tracking-tight mb-6"
-        >
-          A bit about me
-        </motion.h2>
+    <section id="about" className="py-20 px-6 md:px-10">
+      <div className="max-w-5xl mx-auto">
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="section-header"
+        >
+          <span className="section-header-num">03</span>
+          <span className="section-header-title">About</span>
+        </motion.div>
+
+        <div className="grid md:grid-cols-5 gap-10 md:gap-16">
+
+          {/* Prose */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.4, delay: 0.1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.55 }}
+            className="md:col-span-3 space-y-5 text-sm leading-relaxed prose-justified"
+            style={{ color: "var(--muted)" }}
           >
-            <div className="space-y-4 text-[var(--foreground-muted)] leading-relaxed text-sm">
-              <p>
-                I&apos;ve been building production systems for over 20 years. Currently
-                Principal Engineer at Eagle Eye Solutions, where I&apos;m building highly
-                scalable APIs for major retailers.
-              </p>
-              <p>
-                Previously I architected event-driven systems processing 7B+ events annually.
-                In 2006, I founded Polyxmedia to help companies that need senior expertise
-                without the enterprise price tag.
-              </p>
-              <p>
-                I use AI where it actually helps, not because it&apos;s trendy. We build
-                systems that don&apos;t need rebuilding every 2 years.
-              </p>
-            </div>
+            <p>
+              I&apos;ve been building production software for over 20 years. The work
+              has ranged from event-driven systems processing seven billion events a year
+              to small bespoke platforms for artists and museums. I build things that are
+              meant to last and that don&apos;t require rebuilding every two years.
+            </p>
+            <p>
+              The research started as a private project. I spent years thinking about
+              the systems I was building and wondering what they were actually made of
+              — not in a software-architecture sense, but in a deeper sense. What is
+              information? What is the substrate it runs on? Is there a substrate?
+              Informational Substrate Convergence is my first attempt to write that
+              down rigorously, drawing on quantum information theory, the holographic
+              principle, and the philosophy of mind.
+            </p>
+            <p>
+              I work independently. No university affiliation. The paper stands or
+              falls on its own argument.
+            </p>
           </motion.div>
 
+          {/* Right column */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.4, delay: 0.2 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.55, delay: 0.1 }}
+            className="md:col-span-2 space-y-8"
           >
-            <h3 className="font-serif text-lg font-medium mb-4">
-              Technologies I work with
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {skills.map((skill) => (
-                <span
-                  key={skill}
-                  className="px-3 py-1.5 bg-[var(--card)] border border-[var(--border)] rounded-full text-xs font-medium"
-                >
-                  {skill}
-                </span>
-              ))}
+            <div>
+              <p
+                className="text-xs uppercase tracking-widest mb-3"
+                style={{
+                  color: "var(--dim)",
+                  fontFamily: "var(--font-mono-display), monospace",
+                }}
+              >
+                Stack
+              </p>
+              <p
+                className="text-xs leading-loose"
+                style={{
+                  color: "var(--muted)",
+                  fontFamily: "var(--font-mono-display), monospace",
+                }}
+              >
+                Go · Rust · Python · TypeScript · React · Node.js · PostgreSQL
+                · Kubernetes · Docker · AWS · GCP · Kafka · OpenAI · LangChain
+              </p>
+            </div>
+
+            <div>
+              <p
+                className="text-xs uppercase tracking-widest mb-3"
+                style={{
+                  color: "var(--dim)",
+                  fontFamily: "var(--font-mono-display), monospace",
+                }}
+              >
+                Research Interests
+              </p>
+              <p
+                className="text-xs leading-loose"
+                style={{
+                  color: "var(--muted)",
+                  fontFamily: "var(--font-mono-display), monospace",
+                }}
+              >
+                Informational ontology · Philosophy of physics · Quantum
+                information theory · Philosophy of mind · Consciousness ·
+                Integrated information theory
+              </p>
             </div>
           </motion.div>
         </div>

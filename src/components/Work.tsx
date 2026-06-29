@@ -4,102 +4,138 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
+    year: "2024",
     title: "Mitchs.ai",
-    description: "AI-powered SaaS platform built for Mitch Sullivan (50k+ followers), renowned recruitment copywriter who has worked with BBC, ASDA, and McLaren. Generates job adverts matching his signature style.",
-    tags: ["Python", "OpenAI", "LangChain", "Vue.js"],
-    link: "https://mitchs.ai",
+    url: "https://mitchs.ai",
+    description:
+      "AI writing platform for Mitch Sullivan — recruitment copywriter with 50k+ followers, clients include BBC, ASDA, McLaren. Generates job adverts that match his signature voice at scale.",
+    stack: "Python · OpenAI · LangChain · Vue.js",
   },
   {
+    year: "2006–",
     title: "Polyxmedia",
-    description: "Founded consultancy providing AI integration and software architecture services. Helping companies build systems that scale without the enterprise price tag.",
-    tags: ["AI/ML", "Architecture", "Consulting"],
-    link: "https://polyxmedia.com",
+    url: "https://polyxmedia.com",
+    description:
+      "Consultancy delivering AI integration and software architecture. Senior engineering expertise without the enterprise overhead — the same approach used for billion-event systems, applied to what you actually need.",
+    stack: "AI/ML · Architecture · Consulting",
   },
   {
+    year: "2023",
     title: "Trap Music Museum",
-    description: "Built custom ticketing and waiver systems for T.I.'s Atlanta-based museum, replacing costly third-party solutions and drastically reducing operational costs.",
-    tags: ["Node.js", "React", "Payment Integration"],
-    link: "https://shop.trapmusicmuseum.com",
+    url: "https://shop.trapmusicmuseum.com",
+    description:
+      "Custom ticketing and waiver platform for T.I.'s Atlanta museum. Replaced expensive third-party solutions, eliminated unnecessary costs, gave the team ownership of their own stack.",
+    stack: "Node.js · React · Payments",
   },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.8,
-      ease: [0.25, 0.4, 0.25, 1] as const,
-    },
-  },
-};
-
 export function Work() {
   return (
-    <section id="work" className="py-12 px-6">
-      <div className="max-w-4xl mx-auto">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.4 }}
-          className="font-serif text-3xl md:text-4xl font-medium tracking-tight mb-6"
-        >
-          Things I&apos;ve built
-        </motion.h2>
+    <section id="work" className="py-20 px-6 md:px-10">
+      <div className="max-w-5xl mx-auto">
 
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          className="space-y-4"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="section-header"
         >
-          {projects.map((project, index) => (
-            <motion.article
-              key={index}
-              variants={itemVariants}
-              className="group"
+          <span className="section-header-num">02</span>
+          <span className="section-header-title">Engineering</span>
+        </motion.div>
+
+        {/* Intro line */}
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-sm mb-10"
+          style={{ color: "var(--muted)", maxWidth: "55ch" }}
+        >
+          Currently Principal Engineer at Eagle Eye Solutions, building
+          highly scalable APIs for major retailers. Previously architected
+          event-driven systems processing 7B+ events annually.
+        </motion.p>
+
+        {/* Project list */}
+        <div style={{ borderTop: "1px solid var(--border)" }}>
+          {projects.map((p, i) => (
+            <motion.div
+              key={p.title}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.07 }}
+              style={{ borderBottom: "1px solid var(--border)" }}
             >
               <a
-                href={project.link}
+                href={p.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block p-5 rounded-xl bg-[var(--card)] border border-[var(--border)] hover:border-[var(--accent)] transition-all duration-300"
+                className="group block py-7"
               >
-                <div className="mb-3">
-                  <h3 className="font-serif text-xl font-medium mb-1 group-hover:text-[var(--accent)] transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-sm text-[var(--foreground-muted)] leading-relaxed">
-                    {project.description}
-                  </p>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag, tagIndex) => (
-                    <span
-                      key={tagIndex}
-                      className="px-3 py-1 text-xs font-medium bg-[var(--background-secondary)] rounded-full text-[var(--foreground-muted)]"
+                <div className="grid md:grid-cols-[5rem_1fr_1.5rem] gap-x-6 gap-y-2 items-start">
+                  {/* Year */}
+                  <span
+                    className="text-xs pt-0.5"
+                    style={{
+                      color: "var(--dim)",
+                      fontFamily: "var(--font-mono-display), monospace",
+                    }}
+                  >
+                    {p.year}
+                  </span>
+
+                  {/* Content */}
+                  <div>
+                    <h3
+                      className="font-serif text-xl font-medium mb-2 transition-colors duration-150"
+                      style={{ color: "var(--text)" }}
                     >
-                      {tag}
-                    </span>
-                  ))}
+                      <span className="group-hover:underline decoration-1 underline-offset-3">
+                        {p.title}
+                      </span>
+                    </h3>
+                    <p
+                      className="text-sm leading-relaxed mb-3 prose-justified"
+                      style={{ color: "var(--muted)", maxWidth: "56ch" }}
+                    >
+                      {p.description}
+                    </p>
+                    <p
+                      className="text-xs"
+                      style={{
+                        color: "var(--dim)",
+                        fontFamily: "var(--font-mono-display), monospace",
+                      }}
+                    >
+                      {p.stack}
+                    </p>
+                  </div>
+
+                  {/* Arrow */}
+                  <svg
+                    width="13"
+                    height="13"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="mt-1 transition-all duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                    style={{ color: "var(--dim)" }}
+                  >
+                    <line x1="7" y1="17" x2="17" y2="7" />
+                    <polyline points="7 7 17 7 17 17" />
+                  </svg>
                 </div>
               </a>
-            </motion.article>
+            </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

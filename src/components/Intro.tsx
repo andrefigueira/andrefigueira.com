@@ -13,10 +13,11 @@ export function Intro() {
           transition={{ duration: 0.4 }}
           className="text-lg md:text-xl text-[var(--foreground-muted)] leading-relaxed"
         >
-          Hey, I'm Andre. I build backend systems, APIs, and the occasional AI product.
-          I've been doing this for a while now, mostly for companies that need things to
-          actually work at scale. If you need someone who ships production code and doesn't
-          overcomplicate things, we should talk.
+          I&apos;m André. I spend my time in two modes: building production systems that
+          process billions of events at scale, and asking what those systems &mdash; and
+          everything else &mdash; are fundamentally made of. My first paper argues the
+          answer might be information. The engineering work pays the bills. Both keep me
+          honest.
         </motion.p>
       </div>
     </section>
